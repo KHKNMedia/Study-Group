@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>A few UCAT tips</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d8acc108-f798-4498-b524-b21da4b53de9" class="page sans"><header><h1 class="page-title">A few UCAT tips</h1></header><div class="page-body"><h3 id="67694feb-591f-481c-a7cb-a8e379dfc47e" class="">This advice is all from Oli Cheng so you know its good.</h3><p id="9cecaf0f-c9d8-4081-8911-01b84f9678b9" class="">
+</p><p id="2c34e0ae-c8fd-44fb-9b6c-fb6ddb566e1f" class="">Practice makes perfect. There’s no magic bullet.</p><p id="97e2b92d-4d23-439c-b2e5-bf9f9ccaeffb" class="">
+</p><p id="b8e4b55a-98de-43cf-80d1-456f30558ea6" class="">I was asked a while ago if I could provide UCAT tutoring. I refused, because personally, I don’t think UCAT tutoring is helpful - in this field, there are definitely no shortcuts, and the best way to improve is through hard work. So, here are a few tips that I wrote up for this person about how I personally prepared and any strategies that I have!</p><p id="37cc621b-4499-4c47-8c3f-c531eb1f0c65" class="">A little bit about me: I scored a 3200 (98th percentile) in the UCAT during Year 12, but I had technical difficulties which resulted in me losing 3 minutes at the start of VR.</p><h2 id="4177e7b9-67de-4c23-b3aa-1f64192d82cb" class="">How to prepare</h2><p id="8c287d1e-988d-449c-8c42-83a1d63e12b1" class="">The best investment you can make for your UCAT success is to buy a question bank service. I personally used Medentry, but I’ve also heard great things about Medify. I’d recommend against iCanMed from what I’ve heard. A while back I heard about someone who got 3400+ only using a UCAT book and no service! Just grind out as many questions and mock papers as you possibly can.</p><p id="c5ce4cf4-e4ba-478e-a18d-ae7972e3b18d" class="">With regards to Medentry, I don’t really think that the workshop and guided video tutorials were too beneficial for me. I think it definitely improved my self-confidence, but looking back, I don’t think it was worth the extra cost at all.</p><p id="d6b27bf9-aee1-4a8d-b0d8-b11774598c73" class="">However, others may definitely get use out of the video tutorials, which are really in-depth and explain some strategies. I didn’t end up using many of these strats, which leads me to my next point...</p><p id="ed4b3cf4-2c28-46a4-8409-c8f212ccfc84" class="">
+</p><h2 id="5a7bd39a-10ec-46ec-af9e-b2ce26138ed1" class="">Strategies</h2><p id="ef5ba899-d674-448e-a6dd-e45408516659" class="">The best strategy is the one which <strong>works for you</strong>. The best way to <em>find</em> that strategy is through practice. I’d recommend trying out new techniques, trying to optimise the way you approach questions, as you do them. That can be stuff such as trying triaging (where you do easy questions and flag harder ones for later) or micro-optimisations for specific question types. Practice will help you discover what you’re best at, which is why I don’t advocate for UCAT tutoring or religiously following a set of instructions (cough cough iCanMed).</p><p id="fd54cef0-0d57-46e0-b94a-476394ef9a2b" class="">Personally, my ATAR was far more important than my UCAT, so I chose to focus on that during my final year. My prep began in the summer holidays before Year 12, when I did a handful of questions (maybe 10-20mins) a day to get a hang for things. After that, I left all my mock exams until Term 2 break, and grinded one mock a day (which is incredibly tiring and something I’d recommend against in hindsight) with extra revision questions in the afternoon. My actual UCAT was booked for the first week back from school after the holidays.</p><p id="f721d189-4bca-4b7d-891c-71c83dd18018" class="">I got lucky and scored rather well considering I didn’t prep too much compared to some others. You may be different. The most important thing to do is practice early so you can gauge how you’re doing - if you try a few questions and find that “hey, these seem alright”, maybe you don’t need to go ham a year out from the UCAT.</p><p id="8c625695-db53-46fd-a189-9f727274fac3" class="">One last thing. The UCAT is notoriously luck-based. Sometimes you can get lucky (like me), sometimes you can get pretty unlucky. Your ability to cope in an intensely stressful environment will be tested.</p><h1 id="aff67420-d1e8-4db7-8564-5b8a8b66b5c5" class="">My personal <strong>strategies</strong></h1><p id="de1bce95-5414-4416-9a8c-c6f66a66b61b" class="">As I said earlier, you don’t have to follow these religiously. But, I think it’s worth trying!</p><h2 id="d9741c07-6675-4368-bd6a-02b4a751201d" class="">Verbal Reasoning</h2><p id="38fb4a46-64e9-4726-95ec-b4328c7c1b12" class="">I personally <strong>break down VR into 2 categories: accuracy and speed</strong>. The most important thing to do at first is understand how to answer questions accurately i.e. get them right - no matter how fast you are, you have to click the correct response!</p><p id="e15971f5-c58b-4a51-ad02-f3777f034f67" class="">I think accuracy can be subdivided into 2 more categories:</p><ul id="fba920d4-607d-4833-80a4-02b357cbd9a3" class="bulleted-list"><li style="list-style-type:disc"><strong>How quickly you can find the answer</strong></li></ul><ul id="c6d3a052-99c5-4668-ba1a-113db93166ea" class="bulleted-list"><li style="list-style-type:disc"><strong>How well you can make inferences</strong></li></ul><p id="251a0539-4201-46ab-8557-6a81732e476a" class="">You have to be able to roughly understand where the answer is in a text. For instance, perhaps this means that you’re able to locate the sentence or paragraph where the answer might be. To do this, it might be good to look at keyword scanning, as well as practicing skimming a text before answering questions and committing key ideas to memory (I’ll expand on both of these a little later). At this stage, when you’re trying to train your ability to quickly find the answer in the text, don’t bother working under time pressure because you’ll find it incredibly stifling. Just practice untimed to develop these skills - we can add the speed in later. But train yourself to be able to find the relevant information somewhat quickly.</p><p id="44462293-cbaf-434c-bc77-47f3c263db60" class="">If you can do that, you can now answer about 50% of questions reasonably well - but the other 50% are a bit trickier. You may have found the right information in the passage, but the answer requires you to make a further <em>inference</em>. This is arguably the most subjective part of VR - sometimes you think your answer is right, but it’s just... not. This skill is a lot harder to develop but it comes with practice. Make sure you look over your answers (both incorrect and correct) and read through the reasoning that Medify/Medentry provides for their answer. Oftentimes, these include the common traps and things to avoid.</p><p id="726d8634-3390-45f5-a951-c1932125d697" class="">In particular, be careful of T/F/CT questions! The “Can’t Tell” tends to throw people off. Generally speaking, “False” is a better bet if the question statement can be disproven based off information in the text, while “Can’t Tell” means that the question can’t be answered based off the text.</p><p id="0bf34b74-90ea-43d5-ac5d-c28f246a4cf3" class="">As always, practice, practice, practice.</p><p id="36d2db2e-223d-4571-a9f6-9342c25b0709" class="">
+</p><p id="2f755b06-4d68-4290-bec7-53b44473525c" class="">Next comes the speed. This is where I think everybody develops their own strategies for how to quickly approach texts, and I’d recommend you try the whole gauntlet and see what works for you! This is what I did:</p><ul id="5e114bd1-42da-4fd6-ad41-4e0c35674460" class="bulleted-list"><li style="list-style-type:disc">If the text is a T/F/CT, I would jump straight to the question and find the keywords in the question, scanning for them in the text.</li></ul><ul id="6f221899-5ff2-4a5a-b55f-3f598e72c795" class="bulleted-list"><li style="list-style-type:disc">If the text isn’t T/F/CT, I would first very very quickly analyse the text. I’d be aiming for a 10s analysis. All I did was summarise a sentence or set of sentences in one word or two. Sometimes, for super long texts, I would summarise paragraphs in a word. For instance, in my “analysis” on a text about the history of the light bulb, I might mark certain sentences/paragraphs as “invention, production, expansion, AC/DC, conclusion”. By doing this, I was able to keep a rough mental model of the structure of the text. Then, for each question, I already knew roughly where the relevant information was and could then keyword scan for the right words to answer the question.</li></ul><p id="f6d8f51d-b6d0-4d1e-8000-2935a8fed108" class="">
+</p><h2 id="9d0eaa03-f2cc-44fe-80c7-33292b7c3d89" class="">Decision Making</h2><p id="3eb2a7f8-17c6-4db9-a85b-3ad585602d2c" class="">Trust yourself. Trust the process.</p><p id="a563ebfa-34c7-4fa1-945a-46d6350d6b65" class="">Practice syllogisms, writing down logical statements with a marker (no need for time pressure yet!) until you feel comfortable thinking about things in your head. The hardest part is not second-guessing yourself; it’s so easy to not trust the process you’ve taken to arrive at the answer.</p><p id="778a92c8-c328-4629-b8dc-99fb194819b8" class="">Logic puzzles: use a marker to illustrate relationships. With this, just... practice.</p><p id="38c192e7-d8b9-47b9-998e-3640f5b08ea2" class=""><strong>I don’t think there’s a magic bullet to DM: it’s all practice.</strong></p><p id="8b812db0-52e4-4978-b7e2-c95c31abd397" class="">
+</p><h2 id="93e7e406-0064-4fb1-b0f1-78a7b85f3d01" class="">Quantitative Reasoning</h2><p id="e5dbc694-1a56-47d8-ae4b-df5c79d236cf" class="">First, practice untimed until every calculation you need to perform is easy for you. You should confidently able to manipulate percentages, do algebra stuff, calculate speed/distance/time (without an aid such as a pyramid). By the end, tax questions should be elementary at worst. Your old high school textbooks may be your best friend. Again, don’t worry about time pressure, but you’ll find that QR becomes a <em>lot</em> easier when the math becomes easier for you.</p><p id="5719f3d6-27cf-4dec-ab70-6c4f756639b6" class="">
+</p><p id="68820f5a-51a7-4bb2-85bc-37546f4813fe" class="">As for speed, I think QR is all about skimming the question stem and information quickly to get all the needed data. Here’s my thought process during the following example question:</p><p id="24dd28a9-b667-4443-ae38-052c21c2412a" class="">
+</p><ul id="01de368d-0c88-4bc1-bf31-6a0ba7324877" class="toggle"><li><details open=""><summary><strong>Click to reveal question</strong></summary><figure id="786fb3fd-b135-4970-a77b-44d7274d0490" class="image"><a href="A%20few%20UCAT%20tips%20d8acc108f7984498b524b21da4b53de9/Untitled.png"><img style="width:755px" src="A%20few%20UCAT%20tips%20d8acc108f7984498b524b21da4b53de9/Untitled.png"/></a></figure><figure id="4b996ccc-e940-4cbd-9c8d-f40452371a8c" class="image"><a href="A%20few%20UCAT%20tips%20d8acc108f7984498b524b21da4b53de9/Untitled%201.png"><img style="width:1217px" src="A%20few%20UCAT%20tips%20d8acc108f7984498b524b21da4b53de9/Untitled%201.png"/></a></figure></details></li></ul><ul id="98342da0-a1f9-4228-8894-50e91aa84646" class="toggle"><li><details open=""><summary><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Click to reveal answer guide</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></summary><ol type="1" id="41ff8136-ed76-4d5c-860e-02da2d007da9" class="numbered-list" start="1"><li>First, I read the question: it’s asking for “income tax deducted from salary”. that means i wanna calculate the amount of tax due.<p id="6c4dbfcc-ae9a-4a5a-986f-5e5983bc6588" class="">Note that i don&#x27;t really care about the super confusion question stem yet: i&#x27;m going straight to the question. In the next few paragraphs, I’ll try to explain how i&#x27;m analysing the stem systematically.</p></li></ol><ol type="1" id="48a871ae-e0eb-4f83-84c4-e753e775ba9e" class="numbered-list" start="2"><li>Do a quick scan of the tables, which has rows by age. Hence, the age of Albert matters. OK, what&#x27;s Albert&#x27;s age? I’m looking for the keyword <strong>Albert</strong> in the question stem, and I see 39. That means he&#x27;s in the “Under 65s bracket” (top table).<p id="eb10fb6d-0557-47b6-aea5-81268cc2986b" class="">This table is separated into two different columns: “2006-07” and “2007-08”. Going back the question, it wants the income tax deducted during the tax year of 2006-07 - so, using the table, his personal allowance is $5035.</p></li></ol><ol type="1" id="aec07769-2af2-44c1-a7b9-8235219ebdae" class="numbered-list" start="3"><li>What is a personal allowance? By looking for the keyword “allowance” in the question, I see the phrase:<blockquote id="41c53f6e-9385-489f-a95d-3ef9e091aa46" class="">The <strong>allowances</strong> - income tax is not deducted from these</blockquote><p id="b0b6b67f-2731-4794-8f1d-9d84c51f753c" class="">It seems that personal allowance is not tax-deductible, but the rest is.</p></li></ol><ol type="1" id="1be0d422-b2fb-48aa-a170-971a8cad99a7" class="numbered-list" start="4"><li>i know how tax brackets work from my experience (from my practice!) with tax questions, so i automatically collect the data that need to know. An example tax brackets is:<table id="3247cd1f-5bfa-4ac1-9cce-391411c06701" class="simple-table"><tbody><tr id="cead069e-d999-42a6-9020-86a959394db2"><th id="g`&gt;@" class="block-color-yellow_background simple-table-header">Bracket ($)</th><td id="`v?d" class="">0 - 100</td><td id="uK=j" class="">100 - 200</td><td id="{Bsr" class="">&gt; 200</td></tr><tr id="a3892a48-86ef-424b-a8b5-8acbfdbc6134"><th id="g`&gt;@" class="block-color-yellow_background simple-table-header">Tax percentage</th><td id="`v?d" class="">20%</td><td id="uK=j" class="">30%</td><td id="{Bsr" class="">40%</td></tr></tbody></table><p id="e378aadb-8759-49f5-a490-e1f9d147555f" class="">If someone earns $500, we can thus tabulate their tax payment:</p><table id="3a64813d-11fd-4a14-a620-fe993c1ca9e7" class="simple-table"><tbody><tr id="2071f47c-fcaf-426e-b1c7-85a6a1d33748"><th id="^E^L" class="simple-table-header-color simple-table-header">Bracket ($)</th><td id="GEQq" class="">0 - 100</td><td id="EB]=" class="">100 - 200</td><td id="A|Bg" class="">&gt; 200</td></tr><tr id="92ff2adc-d674-4a2b-a909-b72da189f87f"><th id="^E^L" class="simple-table-header-color simple-table-header">Amount ($)</th><td id="GEQq" class="">100</td><td id="EB]=" class="">100</td><td id="A|Bg" class="">300</td></tr><tr id="573de961-139b-48f0-a782-d2ef62d47a85"><th id="^E^L" class="simple-table-header-color simple-table-header">Tax paid (%)</th><td id="GEQq" class="">20</td><td id="EB]=" class="">30</td><td id="A|Bg" class="">40</td></tr><tr id="ad479324-93db-4047-911f-b898f29d6103"><th id="^E^L" class="simple-table-header-color simple-table-header">Tax paid ($)</th><td id="GEQq" class="">20</td><td id="EB]=" class="">30</td><td id="A|Bg" class="">120</td></tr></tbody></table><p id="3cea6fa8-692b-4ece-a65b-43bb939f8911" class="">Therefore, the total tax paid is 20 + 30 + 120 = 170.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="64f6136a-697e-4ee5-8bbe-828473d3d20a"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Note that I still haven&#x27;t read the entire stem yet!</div></figure></li></ol><ol type="1" id="6a166d15-43f9-4eb3-992c-9ad2aa925960" class="numbered-list" start="5"><li>I know that the tax is divided into several brackets (based off the 2006-07 rate):<table id="d0a53221-f741-46ea-89e1-1c6fdf25cce4" class="simple-table"><thead class="simple-table-header"><tr id="0597180b-f2ec-4692-a897-bf272f0383e4"><th id="m?pR" class="simple-table-header-color simple-table-header" style="width:153px"></th><th id="]=KP" class="simple-table-header-color simple-table-header" style="width:342px">Bracket ($)</th><th id="h[mP" class="simple-table-header-color simple-table-header" style="width:77px">Tax (%)</th></tr></thead><tbody><tr id="70e98c10-eb2f-4043-a65a-094ffd0ae25b"><td id="m?pR" class="" style="width:153px">Personal allowance</td><td id="]=KP" class="" style="width:342px">0 - 5035</td><td id="h[mP" class="" style="width:77px">0%</td></tr><tr id="cec5e2f1-f46e-466d-a843-370e00b6f72a"><td id="m?pR" class="" style="width:153px">Starting rate</td><td id="]=KP" class="" style="width:342px">0 - 2150 <em>over personal allowance</em></td><td id="h[mP" class="" style="width:77px">10%</td></tr><tr id="39d85bcd-fbb2-45d8-a516-aecce443fd09"><td id="m?pR" class="" style="width:153px">Basic rate</td><td id="]=KP" class="" style="width:342px">2151 - 33300 <em>over personal allowance</em></td><td id="h[mP" class="" style="width:77px">22%</td></tr><tr id="ab0a9bc2-a12b-4a05-91d3-67c89ce40cd3"><td id="m?pR" class="" style="width:153px">Higher rate</td><td id="]=KP" class="" style="width:342px">&gt; 33300 <em>over personal allowance</em></td><td id="h[mP" class="" style="width:77px">40%</td></tr></tbody></table><p id="322b21cf-468c-40fa-8914-e46bb2cf3001" class="">Therefore, we can break up Albert’s income into these brackets:</p><table id="efa62e02-6600-46ac-a989-340afaa50ff1" class="simple-table"><thead class="simple-table-header"><tr id="e0a4d1f5-dd6d-445d-b81c-15cd1925bc13"><th id="[PT}" class="simple-table-header-color simple-table-header"></th><th id="AP}^" class="simple-table-header-color simple-table-header">Amount</th><th id="&lt;=a}" class="simple-table-header-color simple-table-header">Tax due</th></tr></thead><tbody><tr id="55f1f4c3-e4ec-441f-a2d9-82210c50f1f1"><td id="[PT}" class="">Personal allowance</td><td id="AP}^" class="">$5035</td><td id="&lt;=a}" class="">$0</td></tr><tr id="b206c324-a426-4789-94ac-4b5c05e5db2d"><td id="[PT}" class="">Starting rate</td><td id="AP}^" class="">$2150</td><td id="&lt;=a}" class="">$215</td></tr><tr id="be677b5d-574d-45af-82a0-8e967323bc54"><td id="[PT}" class="">Basic rate</td><td id="AP}^" class="">$29815</td><td id="&lt;=a}" class="">$6559</td></tr><tr id="9d8a1c47-b6e3-4d33-8745-74a3a8be45c1"><td id="[PT}" class="">Higher rate</td><td id="AP}^" class="">$0</td><td id="&lt;=a}" class="">$0</td></tr></tbody></table></li></ol><ol type="1" id="4c5cf7a9-bfe4-4ad7-9934-a382035de83c" class="numbered-list" start="6"><li>To quickly sum these values during your calculation, make use of the M+ and MRC buttons. Google how to use them on a calculator.</li></ol><ol type="1" id="69f28a51-c059-440e-8f01-bc61d3cbb239" class="numbered-list" start="7"><li>The answer: the total tax due is $6774 🎉</li></ol></details></li></ul><h2 id="2b2b690b-f083-4391-ab20-d8a252b1285f" class="">Abstract Reasoning</h2><p id="5bf5b4bc-4b9a-48e9-a4a3-3e21f181ee13" class="">In all honesty I did quite badly in my AR subtest, so I’m not one to really say. I just did a bunch of practice and tried to learn the techniques that MedEntry taught i.e. SCANS. I also made sure to keep a notebook for all difficult patterns which really helped me with my revision and memory!</p><p id="1b5991ea-2335-4b7d-af87-2ae033c35e69" class="">
+</p><p id="125e5830-e8bd-46b9-b85e-94b7e1c42f82" class="">However! I have a quote from someone on the r/UCAT Discord server who said:<div class="indented"><blockquote id="67788de7-0908-4b3f-a966-4ed1ebbd79e7" class="">It was my best performing subtest (870) and you said you&#x27;re &quot;not really one to say&quot; so i&#x27;ll give my strat for it.
+Basically what I did was yeah a lot of practice and <span style="border-bottom:0.05em solid">keeping a notebook (i used onenote) for the patterns I couldn&#x27;t get and I would write down the pattern that I missed.</span>
+Then I just continued to do questions<strong> making sure to not make the same mistake twice</strong>. I would also sometimes <span style="border-bottom:0.05em solid">go through that mistakes journal to make sure i still remember the patterns that I forgot previously.</span>
+In terms of practice<strong> I only did untimed practice questions unless it was a mock cause I feel like if it&#x27;s timed, you might luckily get a pattern right or unluckily get a pattern wrong that you would&#x27;ve if you didn&#x27;t waste all your time on a previous question.</strong></blockquote></div></p><p id="ed906b4e-f0ee-4b02-88eb-135f9f54da2f" class="">I think it’s wonderful advice from someone who obviously performed incredibly well in the actual UCAT. His Discord tag is <code>lucky962#0599</code> and he’s said that he’s happy to accept any questions.</p><p id="3df2ec25-6327-42c5-9221-d8751b319da8" class="">
+</p><h1 id="29ebdda8-4d23-4d66-b1b8-44437f9d65fa" class="">Final Remarks</h1><p id="b70b01a5-6e04-4888-a281-8accc2928f12" class="">Good luck! You got this. Work hard and you’ll get there 🙂</p><p id="c920daaf-4f7f-41c3-9d02-a273b7a740f8" class="">And if you don’t? The path to medicine is pretty varied and if you’re dead set and committed, there are other ways to where you want to go. One bad exam doesn’t have to be the end, if you’re willing to work hard!</p></div></article></body></html>
